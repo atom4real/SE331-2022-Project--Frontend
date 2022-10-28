@@ -1,5 +1,7 @@
 <template>
-  <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
+  <p>Get vaccine: {{ event.time }}</p>
+  <p>on {{ event.date }}</p>
+  <p>@ {{ event.location }}</p>
   <p>{{ event.description }}</p>
   <img v-for="url in event.imageUrls" :key="url" :src="url" />
 </template>

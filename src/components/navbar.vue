@@ -13,7 +13,7 @@
             </div>
           </label>
           <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-            <li><a>Profile</a></li>
+            <li @click="profile"><a>Profile</a></li>
             <li><a>Update</a></li>
             <li @click="logout"><a>Logout</a></li>
           </ul>
@@ -57,6 +57,10 @@ const logout = () => {
   AuthService.logout();
   Nprogress.done();
   router.push({ name: 'Home' });
+}
+
+const profile = () => {
+  router.push({ name: 'Profile' })
 }
 
 </script>

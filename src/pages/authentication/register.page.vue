@@ -18,6 +18,20 @@
                 </div>
 
                 <div class="form-control w-full max-w-xs">
+                    <label class="label text-primary-700" for="emailAddress">
+                        <span class="label-text">
+                            Email Address
+                        </span>
+                    </label>
+                    <Field name="emailAddress" type="email" class="input input-bordered w-full max-w-xs" placeholder="email@email.com"/>
+                    <label class="label text-primary-700">
+                        <span class="label-text-alt">
+                            <ErrorMessage name="emailAddress" class="text-error" />
+                        </span>
+                    </label>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
                     <label class="label text-primary-700" for="password">
                         <span class="label-text">
                             Password
@@ -46,9 +60,84 @@
                 </div>
 
                 <div class="form-control w-full max-w-xs">
+                    <label class="label text-primary-700" for="firstname">
+                        <span class="label-text">
+                            Firstname
+                        </span>
+                    </label>
+                    <Field name="firstname" type="text" class="input input-bordered w-full max-w-xs" placeholder="firstname"/>
+                    <label class="label text-primary-700">
+                        <span class="label-text-alt">
+                            <ErrorMessage name="firstname" class="text-error" />
+                        </span>
+                    </label>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label text-primary-700" for="lastname">
+                        <span class="label-text">
+                            Lastname
+                        </span>
+                    </label>
+                    <Field name="lastname" type="text" class="input input-bordered w-full max-w-xs" placeholder="lastname"/>
+                    <label class="label text-primary-700">
+                        <span class="label-text-alt">
+                            <ErrorMessage name="lastname" class="text-error" />
+                        </span>
+                    </label>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label text-primary-700" for="sex">
+                        <span class="label-text">
+                            Gender
+                        </span>
+                    </label>
+                    <Field name="sex" as="select" :v-slot="{ sex }" class="input input-bordered w-full max-w-xs" title="sex">
+                        <option value="MALE">male</option>
+                        <option value="FEMALE">female</option>
+                        <option value="NON_BI">non binary</option>
+                        <option value="OTHER">other</option>
+                    </Field>
+                    <label class="label text-primary-700">
+                        <span class="label-text-alt">
+                            <ErrorMessage name="sex" class="text-error" />
+                        </span>
+                    </label>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label text-primary-700" for="hometown">
+                        <span class="label-text">
+                            Home town
+                        </span>
+                    </label>
+                    <Field name="hometown" type="text" class="input input-bordered w-full max-w-xs" placeholder="home,country"/>
+                    <label class="label text-primary-700">
+                        <span class="label-text-alt">
+                            <ErrorMessage name="hometown" class="text-error" />
+                        </span>
+                    </label>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label text-primary-700" for="birthday">
+                        <span class="label-text">
+                            Birthday
+                        </span>
+                    </label>
+                    <Field name="birthday" type="date" min="1960-01-01" max="2010-01-01" class="input input-bordered w-full max-w-xs" placeholder="birthday"/>
+                    <label class="label text-primary-700">
+                        <span class="label-text-alt">
+                            <ErrorMessage name="birthday" class="text-error" />
+                        </span>
+                    </label>
+                </div>
+
+                <div class="form-control w-full max-w-xs">
                     <label class="label text-primary-700" for="pic">
                         <span class="label-text">
-                            Insert your profile picture
+                            upload your profile picture
                         </span>
                     </label>
                     <Field @change="handleUploadPic" name="pic" type="file" class="input w-full max-w-xs" placeholder="upload your file"/>
@@ -86,7 +175,11 @@ const schema = yup.object().shape({
             .required('Username is required!')
             .min(4, 'Must be at least 4 characters!')
             .max(20, 'Must be maximum 20 characters'),
-    
+    emailAddress:
+        yup.string()
+            .required('Email is required!')
+            .email("Email is invalid!")
+            .max(50, "no longer than 50 character"),
     password:
         yup.string()
             .required("password is required")
@@ -96,9 +189,27 @@ const schema = yup.object().shape({
         yup.string()
             .required("you need to confirm you password")
             .oneOf([yup.ref("password")], "password is not match"),
+    firstname:
+        yup.string()
+            .required("your firstname is required!")
+            .min(2, 'Your name need to be at least 2 character')
+            .max(50, 'No one have that much long firstname'),
+    lastname:
+        yup.string()
+            .required("your lastname is required!")
+            .min(2, 'Your lastname need to be at least 2 character')
+            .max(50, 'No one have that much long lastname'),
+    sex: yup.string()
+        .required("your sex is required! please insert"),
+    hometown:
+        yup.string()
+            .required("your hometown is required! please insert"),
+    birthday:
+        yup.string()
+            .required("your birthday is required! please insert"),
     pic:
         yup.string()
-            .required("Your picture is required!")
+            .required("your pic is required! please insert")
 });
 
 const handleRegister = (values) => {

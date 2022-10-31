@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <p class="text-neutral text-5xl my-3">Unverified User</p>
+        <p class="text-neutral text-5xl my-3">All Unverified User</p>
         <div v-if="user.length !== 0">
             <div class="grid lg:grid-cols-3 gap-4 sm:grid-cols-1">
                 <UserCard v-for="u in user" :key=u.id :user=u />
@@ -9,7 +9,7 @@
                 <button @click="loadUser(i)" v-for="i in page" class="btn btn-secondary my-4">{{ i }}</button>
             </div>
         </div>
-        <p v-else class="text-neutral text-3xl my-3">No Unverified user</p>
+        <p v-else class="text-neutral text-3xl my-3">No Unverified User </p>
     </DefaultLayout>
 </template>
 <script setup>

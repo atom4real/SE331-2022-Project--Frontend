@@ -7,7 +7,7 @@
                 <VaccineCard v-for="v in vaccine" :key="v.id" :vaccine="v"/>
             </div>
             <div>
-                <p class="text-neutral text-2xl my-3 mx-3">Our Doctor</p>
+                <p class="text-neutral text-2xl my-3 mx-3">Doctor in care</p>
                 <DoctorCard class="my-6" :doctor="patient.doctor" />
             </div>
         </div>

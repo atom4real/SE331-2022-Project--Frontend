@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <p class="text-neutral text-5xl my-3 mx-3">Admin Page / Patient Details</p>
+        <p class="text-neutral text-5xl my-3 mx-3">Admin & Patient Details</p>
         <div class="tabs py-4">
             <router-link :to="{name:'AdminPatientSetVaccine'}" class="tab tab-lg tab-bordered hover:tab-active text-3xl" tabindex=1 >
                 Set Vaccine
@@ -15,7 +15,7 @@
                 <VaccineCard v-for="v in vaccine" :key="v.id" :vaccine="v"/>
             </div>
             <div>
-                <p class="text-neutral text-2xl my-3 mx-3">Doctor in care</p>
+                <p class="text-neutral text-2xl my-3 mx-3">Our Doctor</p>
                 <DoctorCard class="my-6" :doctor="patient.doctor" />
             </div>
         </div>

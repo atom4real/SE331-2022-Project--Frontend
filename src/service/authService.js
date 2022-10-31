@@ -1,12 +1,18 @@
 import apiClient from "./apiClient";
 import state from "@/state";
 export default {
-    register(user, imgUrls) {
+    register(user,imgUrls) {
         console.log(user)
         return apiClient.post('/register', {
             "username": user.username,
             "password": user.password,
-            "imageUrls": imgUrls
+            "gender": user.sex,
+            "firstname": user.firstname,
+            "lastname": user.lastname,
+            "email": user.emailAddress,
+            "homeTown": user.hometown,
+            "birthDate": user.birthday,
+            "imageUrls" : imgUrls
         }).then((response) => {
             return Promise.resolve(response.data)
         }).catch((error) => {
@@ -22,29 +28,29 @@ export default {
             }
         })
     },
-    login(user) {
-        return apiClient.post('/auth', {
+    login(user){
+        return apiClient.post('/auth',{
             username: user.username,
             password: user.password
         }).then((response) => {
-            localStorage.setItem('token', response.data.token)
-            state.dispatch('setStatus', true)
+            localStorage.setItem('token',response.data.token)
+            state.dispatch('setStatus',true)
             this.getUser().then((response) => {
-                state.dispatch('setCurrentUser', response.data)
-                state.dispatch('setRole', response.data.authorities[0])
+                state.dispatch('setCurrentUser',response.data)
+                state.dispatch('setRole',response.data.authorities[0])
             })
-            return Promise.resolve(response.data)
+            return Promise.resolve(response.data)           
         }).catch((error) => {
             return Promise.reject(error)
-        })
+        })          
     },
-    getUser() {
+    getUser(){
         return apiClient.get('/credential')
     },
-    logout() {
+    logout(){
         localStorage.removeItem('token');
-        state.dispatch('setCurrentUser', null)
-        state.dispatch('setRole', "")
-        state.dispatch('setStatus', false)
+        state.dispatch('setCurrentUser',null)
+        state.dispatch('setRole',"")
+        state.dispatch('setStatus',false)
     },
 }

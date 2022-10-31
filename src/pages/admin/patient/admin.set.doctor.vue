@@ -7,7 +7,7 @@
                 <option v-for="d in doctor" :key="d.id" :value="d.id">{{ d.fullName }}</option>
             </select>
             <button @click="addDoctor" class="btn btn-primary my-3">
-                Set Doctor
+                set Doctor
             </button>
         </div>
     </DefaultLayout>

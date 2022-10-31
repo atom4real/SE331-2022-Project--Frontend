@@ -13,7 +13,7 @@
                 <input v-model="date" type="date" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
             </div>
             <button @click="addVaccine" class="btn btn-primary my-3">
-                Add vaccine
+                add vaccine
             </button>
         </div>
     </DefaultLayout>

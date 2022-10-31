@@ -52,12 +52,12 @@ const router = useRouter();
 const schema = yup.object().shape({
     username:
         yup.string()
-            .required('Username is required, please insert it!')
-            .min(4, 'Must be at least 4 characters!')
+            .required('Username is required!')
+            .min(3, 'Must be at least 3 characters!')
             .max(20, 'Must be maximum 20 characters'),
     password:
         yup.string()
-            .required("password is required, please insert it!")
+            .required("password is required")
             .min(4, "Must be at least 4 character")
             .max(40, "no longer than 40 character"),
 });

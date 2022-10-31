@@ -61,10 +61,14 @@ const props = defineProps({
     user: {
         type: Object,
         default: {
-            "username": "idea",
-            "firstname": "wanatchaya",
-            "lastname": "kaewwongwan",
-            "imageUrls": "firebase-adminsdk-roiex@imageupload-ecc32.iam.gserviceaccount.com",
+            "username": "oat432",
+            "firstname": "Sahachan",
+            "lastname": "Tippimwong",
+            "gender": "MALE",
+            "homeTown": "Kamphaneg Phet, Thailand",
+            "email": "oat431@gmail.com",
+            "birthDate": "9/11/43 07:00",
+            "imageUrls": "https://storage.googleapis.com/download/storage/v1/b/ttoproj-store.appspot.com/o/2565-10-27%20171551871-WIN_20211227_12_33_30_Pro.jpg?generation=1666865754411623&alt=media",
         }
     }
 })

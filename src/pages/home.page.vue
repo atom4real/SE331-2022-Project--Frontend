@@ -2,15 +2,15 @@
     <DefaultLayout>
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-                <p class="uppercase tracking-loose w-full">Vaccinated Checker</p>
-                <h1 class="my-4 text-5xl font-bold leading-tight">Manage and check your vaccinated data </h1>
+                <p class="uppercase tracking-loose w-full">The Vaccinated Checker</p>
+                <h1 class="my-4 text-5xl font-bold leading-tight">Manage and check your vaccinated data</h1>
                 <p class="leading-normal text-2xl mb-8">
-                    This application is created to manage hospital.
+                    This application is created to manage our hospital.
                 </p>
 
                 <router-link to="/register">
                     <button class="btn btn-primary text-base-100">
-                        Sign up
+                        Sign up here!
                     </button>
                 </router-link>
             </div>

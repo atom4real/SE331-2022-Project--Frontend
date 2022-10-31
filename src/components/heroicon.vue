@@ -2,7 +2,7 @@
   <div class="hero min-h-screen bg-base-200">
     <div class="hero-content text-center">
       <div class="max-w-md">
-        <h1 class="text-5xl font-bold">{{ header }}</h1>
+        <h1 class="text-5xl font-bold">{{header}}</h1>
         <p class="py-6 text-md">
           This template using a Vue3 + VueUse + Vite + TailwindCSS + DaisyUI
         </p>
@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { useNow } from '@vueuse/core'
+import { useNow } from "@vueuse/core";
 
 const now = useNow()
 

@@ -4,7 +4,7 @@
       <router-link
         to="/Profile"
         class="btn btn-ghost normal-case text-3xl text-primary"
-        >TTO Project</router-link
+        >Elizabeth Hospital</router-link
       >
     </div>
     <div v-if="getStatus">

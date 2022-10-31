@@ -9,7 +9,7 @@
                 <button @click="loadUser(i)" v-for="i in page" class="btn btn-secondary my-4">{{ i }}</button>
             </div>
         </div>
-        <p v-else class="text-neutral text-3xl my-3">No Unverified User </p>
+        <p v-else class="text-neutral text-3xl my-3">No Unverified User.</p>
     </DefaultLayout>
 </template>
 <script setup>

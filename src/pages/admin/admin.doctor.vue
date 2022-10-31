@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <p class="text-neutral text-5xl my-3">All Doctor in hospital</p>
+        <p class="text-neutral text-5xl my-3">All Doctor</p>
         <div>
             <div class="grid lg:grid-cols-3 gap-4 sm:grid-cols-1">
                 <DoctorCard v-for="d in doctor" :key="d.id" :doctor="d" />

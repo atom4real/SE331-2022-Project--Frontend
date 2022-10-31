@@ -1,7 +1,7 @@
 <template>
     <DefaultLayout>
         <p class="text-neutral text-5xl my-3">Doctor Page</p>
-        <p class="text-neutral text-5xl my-3">All Patient in their responsibility</p>
+        <p class="text-neutral text-5xl my-3">All Patient </p>
         <div>
             <div class="grid lg:grid-cols-3 gap-4 sm:grid-cols-1">
                 <PatientCard class="my-2" v-for="p in patient" :key="p.id" :patient="p" />

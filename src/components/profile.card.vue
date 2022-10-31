@@ -61,13 +61,13 @@ const props = defineProps({
     user: {
         type: Object,
         default: {
-            "username": "oat432",
-            "firstname": "Sahachan",
-            "lastname": "Tippimwong",
-            "gender": "MALE",
-            "homeTown": "Kamphaneg Phet, Thailand",
-            "email": "oat431@gmail.com",
-            "birthDate": "9/11/43 07:00",
+            "username": "Idea",
+            "firstname": "Wanatchaya",
+            "lastname": "Kaewwongwan",
+            "gender": "FEMALE",
+            "homeTown": "Chiang mai",
+            "email": "wanatchaya.idea@gmail.com",
+            "birthDate": "06/01/45 12:03",
             "imageUrls": "https://storage.googleapis.com/download/storage/v1/b/ttoproj-store.appspot.com/o/2565-10-27%20171551871-WIN_20211227_12_33_30_Pro.jpg?generation=1666865754411623&alt=media",
         }
     }

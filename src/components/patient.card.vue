@@ -10,12 +10,12 @@
             <div class="card-actions justify-end">
                 <div class="badge badge-outline">
                     <router-link :to="{name:'AdminPatientSetVaccine', params:{id:props.patient.user.id}}">
-                        Set vaccine
+                        set vaccine
                     </router-link>
                 </div>
                 <div class="badge badge-outline">
                     <router-link :to="{name:'AdminPatientSetDoctor',params:{id:props.patient.user.id}}">
-                        Set doctor
+                        set doctor
                     </router-link>
                 </div>
             </div>

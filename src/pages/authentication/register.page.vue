@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <p class="text-neutral text-5xl my-5">Register Service</p>
+        <p class="text-neutral text-5xl my-5">Register Page</p>
         <Form @submit="handleRegister" :validation-schema="schema">
             <div class="grid grid-cols-2">
                 <div class="form-control w-full max-w-xs">
@@ -137,7 +137,7 @@
                 <div class="form-control w-full max-w-xs">
                     <label class="label text-primary-700" for="pic">
                         <span class="label-text">
-                            upload your profile picture
+                            Insert your profile pic
                         </span>
                     </label>
                     <Field @change="handleUploadPic" name="pic" type="file" class="input w-full max-w-xs" placeholder="upload your file"/>
@@ -173,7 +173,7 @@ const schema = yup.object().shape({
     username:
         yup.string()
             .required('Username is required!')
-            .min(4, 'Must be at least 4 characters!')
+            .min(3, 'Must be at least 3 characters!')
             .max(20, 'Must be maximum 20 characters'),
     emailAddress:
         yup.string()
@@ -200,16 +200,16 @@ const schema = yup.object().shape({
             .min(2, 'Your lastname need to be at least 2 character')
             .max(50, 'No one have that much long lastname'),
     sex: yup.string()
-        .required("your sex is required! please insert"),
+        .required("your sex is required!"),
     hometown:
         yup.string()
-            .required("your hometown is required! please insert"),
+            .required("your hometown is required!"),
     birthday:
         yup.string()
-            .required("your birthday is required! please insert"),
-    pic:
-        yup.string()
-            .required("your pic is required! please insert")
+            .required("your birthday is required!"),
+    // pic:
+        // yup.string()
+            // .required("your pic is required!")
 });
 
 const handleRegister = (values) => {

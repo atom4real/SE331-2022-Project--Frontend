@@ -1,6 +1,7 @@
 <template>
+    
     <div class="card w-96 glass">
-        <figure><img :src="user.imageUrls" alt="car!" /></figure>
+        <figure><img :src="user.imageUrls" alt="user-pic" /></figure>
         <div class="card-body items-center text-center">
             <h2 class="card-title">{{user.username}}</h2>
             <p>{{user.firstname}} {{user.lastname}}</p>
@@ -33,7 +34,7 @@ const setPatient = async () => {
 const setDoctor = async () => {
     let con = await confirm('Are you sure to set this user to be doctor?');
     if(con){
-        const hospital = prompt('Enter hospital name'); 
+        const hospital = prompt('Please, enter hospital name:'); 
         await adminService.verifyAsDoctor(props.user.id,hospital);
         router.push({ name: 'AdminDoctor' });
     }

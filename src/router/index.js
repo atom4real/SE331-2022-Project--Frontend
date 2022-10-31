@@ -1,174 +1,141 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EventListView from '@/views/EventListView.vue'
-import EventEditView from '@/views/event/EventEditView.vue'
-import EventRegisterView from '@/views/event/EventRegisterView.vue'
-import AboutView from '../views/AboutView.vue'
-import EventLayoutView from '@/views/event/EventLayoutView.vue'
-import EventDetailView from '@/views/event/EventDetailView.vue'
-import NotFoundView from '@/views/NotFoundView.vue'
-import NetWorkErrorView from '@/views/NetworkErrorView.vue'
-import AddEvent from '@/views/EventForm.vue'
-import NProgress from 'nprogress'
-import GStore from '@/store'
-import EventService from '@/services/EventService'
-import OrganizerService from '@/services/OrganizerService.js'
-import OrganizerDetailView from '@/views/organizer/OrganizerDetailView.vue'
-import OrganizerLayoutView from '@/views/organizer/OrganizerLayoutView.vue'
-import OrganizerView from '@/views/OrganizerListView.vue'
-import Login from '@/views/LoginFormView.vue'
-import RegisterView from '@/views/RegisterView.vue'
-const routes = [
-  {
-    path: '/',
-    name: 'EventList',
-    component: EventListView,
-    props: (route) => ({ page: parseInt(route.query.page) || 1 })
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: AboutView
-  },
-  {
-    path: '/organizer',
-    name: 'OrganizerView',
-    component: OrganizerView,
-    props: (route) => ({ page: parseInt(route.query.page) || 1 })
-  },
-  {
-    path: '/organizer/:id',
-    name: 'OrganizerLayoutView',
-    component: OrganizerLayoutView,
-    beforeEnter: (to) => {
-      console.log(to.params.id)
-      return OrganizerService.getOrganizer(to.params.id)
-        .then((response) => {
-          GStore.organizers = response.data
-        })
-        .catch((error) => {
-          if (error.response && error.response.start == 404) {
-            return {
-              name: '404Resource',
-              parames: { resource: 'event' }
-            }
-          } else {
-            return { name: 'NetworkError' }
-          }
-        })
-    },
-    props: true,
-    children: [
-      {
-        path: 'organizerDetail',
-        name: 'organizerDetail',
-        component: OrganizerDetailView,
-        props: true
-      }
-    ]
-  },
-  {
-    path: '/event/:id',
-    name: 'EventLayoutView',
-    component: EventLayoutView,
-    beforeEnter: (to) => {
-      return EventService.getEvent(to.params.id)
-        .then((response) => {
-          GStore.event = response.data
-        })
-        .catch((error) => {
-          console.log(error)
-          if (error.response && error.response.start == 404) {
-            return {
-              name: '404Resource',
-              parames: { resource: 'event' }
-            }
-          } else {
-            return { name: 'NetworkError' }
-          }
-        })
-    },
-    props: true,
-    children: [
-      {
-        path: '',
-        name: 'EventDetails',
-        component: EventDetailView,
-        props: true
-      },
-      {
-        path: 'register',
-        name: 'EventRegister',
-        props: true,
-        component: EventRegisterView
-      },
-      {
-        path: 'edit',
-        name: 'EventEdit',
-        props: true,
-        component: EventEditView
-      }
-    ]
-  },
-  {
-    path: '/add-event',
-    name: 'AddEvent',
-    component: AddEvent,
-    beforeEnter: () => {
-      return OrganizerService.getOrganizers()
-        .then((response) => {
-          GStore.organizers = response.data
-        })
-        .catch(() => {
-          GStore.organizers = null
-          console.log('cannot load organizer')
-        })
+import Home from '@/pages/home.page.vue'
+import About from '@/pages/about.page.vue'
+import Register from '@/pages/authentication/register.page.vue'
+import Login from '@/pages/authentication/login.page.vue'
+import Profile from '@/pages/user/user.profile.page.vue'
+import Admin from '@/pages/admin/admin.home.page.vue'
+import AdminPatient from '@/pages/admin/admin.patient.vue'
+import AdminDoctor from '@/pages/admin/admin.doctor.vue'
+import AdminUser from '@/pages/admin/admin.user.vue'
+import AdminPatientDetails from '@/pages/admin/patient/admin.patient.detail.vue'
+import AdminPatientSetVaccine from '@/pages/admin/patient/admin.set.vaccine.vue'
+import AdminPatientSetDoctor from '@/pages/admin/patient/admin.set.doctor.vue'
+import GetCredential from '@/service/authService'
+import Doctor from '@/pages/doctor/doctor.home.page.vue'
+import DoctorPatient from '@/pages/doctor/doctor.patient.detail.vue'
+import Patient from '@/pages/patient/patient.home.page.vue'
+
+const checkRole = async (to) => {
+    let role = ""
+    let id = 0;
+    let doctor_id = 0;
+    let patient_id = 0;
+    if (localStorage.getItem('token') != null) {
+        const credential = await GetCredential.getUser();
+        role = await credential.data.authorities[0];
+        id = await credential.data.id;
+        doctor_id = await credential.data.doctorID;
+        patient_id = await credential.data.patientID;
     }
-  },
-  {
-    path: '/404/:resource',
-    name: '404Resource',
-    component: NotFoundView,
-    props: true
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: RegisterView
-  },
-  {
-    path: '/:catchAll(.*)',
-    name: 'NotFound',
-    component: NotFoundView
-  },
-  {
-    path: '/network-error',
-    name: 'NetworkError',
-    component: NetWorkErrorView
-  }
+    if(role === "ROLE_ADMIN"){
+        return "/admin/"+id;
+    }
+    if(role === "ROLE_DOCTOR"){
+        return "/doctor/" + doctor_id;
+    }
+    if(role === "ROLE_PATIENT"){
+        return "/patient/" + patient_id;
+    }
+    return "/"
+}
+
+const routes = [
+    {
+        path: '/',
+        name: 'Home',
+        component: Home
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: About
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile,
+        beforeEnter: [checkRole]
+    },
+    {
+        path: '/admin/:id',
+        name: 'Admin',
+        component: Admin,
+        props:true,
+        children: [
+            {
+                path:"",
+                name:"AdminHome",
+                component: Profile
+            },
+            {
+                path: 'user',
+                name: 'AdminUser',
+                component: AdminUser
+            },
+            {
+                path: 'patient',
+                name: 'AdminPatient',
+                component: AdminPatient
+            },
+            {
+                path: 'doctor',
+                name: 'AdminDoctor',
+                component: AdminDoctor
+            }
+        ],
+    },
+    {
+        path: '/admin/patient/:id',
+        name: 'AdminPatientDetails',
+        component: AdminPatientDetails,
+        props:true,
+        children: [
+            {
+                path:"set-vaccine",
+                name:"AdminPatientSetVaccine",
+                component: AdminPatientSetVaccine
+            },
+            {
+                path:"set-doctor",
+                name:"AdminPatientSetDoctor",
+                component: AdminPatientSetDoctor
+            }
+        ]
+    },
+    {
+        path: '/doctor/:id',
+        name: 'Doctor',
+        component: Doctor,
+        props: true
+    },
+    {
+        path: '/doctor/patient/:id',
+        name: 'DoctorPatient',
+        component: DoctorPatient,
+        props: true
+    },
+    {
+        path: '/patient/:id',
+        name: 'Patient',
+        component: Patient,
+        props: true
+    }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
-  }
-})
-router.beforeEach(() => {
-  NProgress.start()
-})
-
-router.afterEach(() => {
-  NProgress.done()
+    history: createWebHistory(),
+    routes,
 })
 
 export default router

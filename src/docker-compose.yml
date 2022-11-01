@@ -1,0 +1,6 @@
+version: "3.3"
+services:
+    web:
+        image: "atom4real/fontend-lab13:latest"
+        ports: 
+            - 8003:80

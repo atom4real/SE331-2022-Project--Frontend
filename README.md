@@ -1,13 +1,3 @@
-# TTO Project For Proving something in my mind 
-
-## Feature
-
-- Doctor
-
-- Patient
-
-- Admin
-
----
-
-Will comeback to update if there anything to update
+Group name: Chupapi muyayo
+Name member: 632115036 Wanatchaya Kaewwongwan
+632115045 Intouch Khurwong

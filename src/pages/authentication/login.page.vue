@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <p class="text-neutral text-5xl my-3">Login Page</p>
+        <p class="text-neutral text-5xl my-3">Login </p>
         <Form @submit="handleLogin" :validation-schema="schema">
             <div class="grid grid-cols-1">
                 <div class="form-control w-full max-w-xs">

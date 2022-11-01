@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg">
+    <div class="w-full max-w-xs overflow-hidden bg-base-300 rounded-lg shadow-lg">
         <img class="object-cover w-full h-56"
             :src="props.doctor.imageUrls"
             alt="avatar">

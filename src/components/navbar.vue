@@ -1,7 +1,7 @@
 <template>
-  <div class="navbar bg-base-100">
+  <div class="navbar bg-green-200">
     <div class="flex-1">
-      <router-link to="/Profile" class="btn btn-ghost normal-case text-3xl text-primary">Welcome to Elizabeth hospital!</router-link>
+      <router-link to="/Profile" class="btn btn-ghost normal-case text-3xl text-green-500">Welcome to Elizabeth hospital!</router-link>
     
     </div>
     <div v-if="getStatus">

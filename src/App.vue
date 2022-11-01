@@ -1,6 +1,8 @@
 <template>
   <Navbar />
-  <router-view />
+  <div class="bg-green-100">
+    <router-view />
+  </div>
 </template>
 
 <script setup>

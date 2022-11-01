@@ -1,6 +1,6 @@
 <template>
     
-    <div class="card w-96 glass">
+    <div class="card w-96 bg-base-300 glass">
         <figure><img :src="user.imageUrls" alt="user-pic" /></figure>
         <div class="card-body items-center text-center">
             <h2 class="card-title">{{user.username}}</h2>

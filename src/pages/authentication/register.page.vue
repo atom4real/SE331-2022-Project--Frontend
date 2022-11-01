@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout>
-        <p class="text-neutral text-5xl my-5">Register Page</p>
+        <p class="text-neutral text-5xl my-5">Register</p>
         <Form @submit="handleRegister" :validation-schema="schema">
             <div class="grid grid-cols-2">
                 <div class="form-control w-full max-w-xs">
@@ -48,7 +48,7 @@
                 <div class="form-control w-full max-w-xs">
                     <label class="label text-primary-700" for="passwordConfirmation">
                         <span class="label-text">
-                            Confirm Password
+                            Confirmed Password
                         </span>
                     </label>
                     <Field name="passwordConfirmation" type="password" class="input input-bordered w-full max-w-xs" placeholder="confirm password"/>
@@ -109,7 +109,7 @@
                 <div class="form-control w-full max-w-xs">
                     <label class="label text-primary-700" for="hometown">
                         <span class="label-text">
-                            Home town
+                            Hometown
                         </span>
                     </label>
                     <Field name="hometown" type="text" class="input input-bordered w-full max-w-xs" placeholder="home,country"/>

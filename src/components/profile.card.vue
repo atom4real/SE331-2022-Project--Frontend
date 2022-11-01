@@ -14,7 +14,6 @@
 
         <div class="px-6 py-4">
             <h1 class="text-xl font-semibold text-gray-800">{{ props.user.firstname }} {{ props.user.lastname }}</h1>
-
             <p class="py-2 text-gray-700">
                 {{ getAge(props.user.birthDate) }} year olds
             </p>
@@ -68,7 +67,8 @@ const props = defineProps({
             "homeTown": "Chiang mai",
             "email": "wanatchaya.idea@gmail.com",
             "birthDate": "06/01/45 12:03",
-            "imageUrls": "https://storage.googleapis.com/download/storage/v1/b/ttoproj-store.appspot.com/o/2565-10-27%20171551871-WIN_20211227_12_33_30_Pro.jpg?generation=1666865754411623&alt=media",
+            "imageUrls": "https://firebasestorage.googleapis.com/v0/b/imageupload-ecc32.appspot.com/o/2021-10-27_020823386-avatar7.png?alt=media&token=93d2ec6f-afbd-4dfc-8af6-2c719a43aa73"
+
         }
     }
 })
@@ -77,4 +77,5 @@ const getAge = (date) => {
     let date1 = dayjs(date);
     return date1.diff(now, 'year');
 }
+
 </script>

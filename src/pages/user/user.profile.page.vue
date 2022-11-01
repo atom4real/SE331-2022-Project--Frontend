@@ -1,9 +1,10 @@
 <template>
     <DefaultLayout>
-        <p class="text-neutral text-5xl my-3">Redirect...</p>
+        <ProfileCard />
     </DefaultLayout>
 </template>
 
 <script setup>
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import ProfileCard from '@/components/profile.card.vue';
 </script>

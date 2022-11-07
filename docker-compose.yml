@@ -1,6 +1,6 @@
 version: "3.3"
 services:
     web:
-        image: "atom4real/se331-2022-project--frontend:latest"
+        image: "atom4real/se331-2022-project--frontend"
         ports: 
             - 8003:80

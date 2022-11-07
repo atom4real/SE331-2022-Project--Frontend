@@ -1,13 +1,9 @@
-# TTO Project For Proving something in my mind 
+## Group name: 
+    Chupapi muyayo
 
-## Feature
+## Name member: 
+             632115036 Wanatchaya Kaewwongwan,
 
-- Doctor
-
-- Patient
-
-- Admin
-
----
-
-Will comeback to update if there anything to update
+             632115045 Intouch Khurwong
+ ## url
+http://44.212.159.104:8001/

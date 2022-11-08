@@ -26,6 +26,7 @@ import DoctorCard from '@/components/doctor.card.vue';
 import CommentCard from '@/components/comment.card.vue';
 import VaccineCard from '@/components/vaccine.card.vue';
 
+
 const props = defineProps({
     id: {
         type: String,
